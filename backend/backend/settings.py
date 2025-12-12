@@ -9,29 +9,29 @@ ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'backend.urls'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com',
-        'PORT': '5432',  # Session Pooler port
-        'NAME': 'postgres',
-        'USER': 'postgres.abgwckaegluhqqvtafgo',
-        'PASSWORD': 'Nisharb911@26',
-        'OPTIONS': {
-            'sslmode': 'require',
-        }
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com',
+#         'PORT': '5432',  # Session Pooler port
+#         'NAME': 'postgres',
+#         'USER': 'postgres.abgwckaegluhqqvtafgo',
+#         'PASSWORD': 'Nisharb911@26',
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         }
+#     }
+# }
 # for live deploye project
-#import dj_database_url
+import dj_database_url
 
-#DATABASES = {
-#   'default': dj_database_url.config(
-#       default=os.environ.get("DATABASE_URL"),
-#       conn_max_age=600,
-#       ssl_require=True
-#   )
-#}
+DATABASES = {
+   'default': dj_database_url.config(
+       default=os.environ.get("DATABASE_URL"),
+       conn_max_age=600,
+       ssl_require=True
+   )
+}
 
 
 INSTALLED_APPS = [
