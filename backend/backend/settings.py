@@ -1,15 +1,28 @@
 # backend/settings.py
 
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEBUG = True
+ALLOWED_HOSTS = ['*']
+
+ROOT_URLCONF = 'backend.urls'
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Nisharb911',
-        'USER': 'postgres',
+        'HOST': 'aws-1-ap-southeast-1.pooler.supabase.com',
+        'PORT': '5432',  # Session Pooler port
+        'NAME': 'postgres',
+        'USER': 'postgres.abgwckaegluhqqvtafgo',
         'PASSWORD': 'Nisharb911@26',
-        'HOST': 'abgwckaegluhqqvtafgo.supabase.co',
-        'PORT': '5432',
+        'OPTIONS': {
+            'sslmode': 'require',
+        }
     }
 }
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -55,3 +68,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',    # REQUIRED
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+SECRET_KEY = 'django-insecure-3x!u1$8@%k9d1b&cz2#d7l5u@o4l9h1r!g4f8u^7$!j8v2r@p'
