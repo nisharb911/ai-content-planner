@@ -78,6 +78,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',    # REQUIRED
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+ALLOWED_HOSTS = [
+    'ai-content-planner-1.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://ai-content-planner-1.onrender.com',
+]
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
