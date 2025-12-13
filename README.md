@@ -73,7 +73,9 @@ python -m venv venv
 venv\Scripts\activate
 
 3. Install Dependencies
-pip install -r requirements.txt
+#pip install -r requirements.txt
+pip install -r backend/requirements.txt
+
 
 (If requirements.txt isn’t included, install manually:)
 pip install django djangorestframework psycopg2-binary supabase python-dotenv
